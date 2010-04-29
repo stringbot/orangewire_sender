@@ -1,7 +1,17 @@
-require 'helper'
+require 'teststrap'
 
-class TestOrangewireSender < Test::Unit::TestCase
-  should "probably rename this file and start testing for real" do
-    flunk "hey buddy, you should probably rename this file and start testing for real"
+context "OrangewireSender" do
+  setup { OrangewireSender }
+
+  hookup do
+    mock.instance_of(RestClient::Resource).post(anything) { "post was called" }
+  end
+
+  asserts_topic "exists"
+
+  context "sending messages" do
+    setup { topic.notify("hey", "ya") }
+    asserts_topic.equals "post was called"
   end
 end
+
