@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "orangewire_sender"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Sends messages to The Orangewire}
+    gem.description = %Q{Sends messages to The Orangewire}
     gem.email = "josh@stringbot.com"
     gem.homepage = "http://github.com/stringbot/orangewire_sender"
     gem.authors = ["Joshua Davison"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_dependency "rest-client", ">= 0"
+    gem.add_development_dependency "riot", ">= 0.10.13"
+    gem.add_development_dependency "rr", ">= 0.10.10"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
