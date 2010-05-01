@@ -2,6 +2,16 @@
 
 Sends messages to The Orangewire
 
+== Usage
+
+Set OrangewireSender.host_url to the url for your Orangewire console.
+
+    OrangewireSender.host_url = "http://localhost:3000"
+    
+Call 
+
+    OrangewireSender.notify("headline", "summary text")
+
 == Copyright
 
 Copyright (c) 2010 Joshua Davison. See LICENSE for details.
