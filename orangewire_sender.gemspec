@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{orangewire_sender}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joshua Davison"]
-  s.date = %q{2010-04-30}
+  s.date = %q{2010-05-01}
   s.description = %q{Sends messages to The Orangewire}
   s.email = %q{josh@stringbot.com}
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/orangewire_sender.rb",
+     "orangewire_sender.gemspec",
      "test/test_orangewire_sender.rb",
      "test/teststrap.rb"
   ]
