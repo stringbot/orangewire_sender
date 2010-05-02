@@ -21,9 +21,13 @@ context "OrangewireSender" do
 
   context "with no config" do
     hookup { topic.host_url = nil }
-    asserts("notify") { topic.notify("hey", "ya") }.raises(RuntimeError, /host/)
+    asserts("notify") { topic.notify("hey", "ya") }.raises(Orangewire::ConfigError, /host_url/)
   end
 
+  context "connecting to bad endpoint" do
+    hookup { topic.host_url = "http://foo.gaz" }
+    asserts("nofify") { topic.notify("what", "up") }.raises(Orangewire::ConnectionError, /Error posting to http:\/\/foo\.gaz/)
+  end
 
 end
 
