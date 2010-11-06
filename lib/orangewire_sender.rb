@@ -3,7 +3,9 @@ require 'restclient'
 require 'orangewire/errors'
 
 class OrangewireSender
-  @@host_url = nil
+  @@host_url  = nil
+  @@login     = nil
+  @@password  = nil
 
   class << self
     def notify(headline, summary)
@@ -17,12 +19,25 @@ class OrangewireSender
     end
 
     def resource
-      raise Orangewire::ConfigError, "Please set OrangewireSender.host_url to the Orangewire url (example: http://localhost:3000)" unless @@host_url
+      raise Orangewire::ConfigError, "Please set host_url, login and password" unless valid_config?
       @resource ||= RestClient::Resource.new("#{@@host_url}/notifications")
     end
 
     def host_url=(url)
       @@host_url = url
+    end
+
+    def login=(login)
+      @@login = login
+    end
+
+    def password=(password)
+      @@password = password
+    end
+
+  private
+    def valid_config?
+      @@host_url && @@login && @@password
     end
   end
 end
