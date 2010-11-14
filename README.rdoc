@@ -7,6 +7,8 @@ Sends messages to The Orangewire
 Set OrangewireSender.host_url to the url for your Orangewire console.
 
     OrangewireSender.host_url = "http://localhost:3000"
+    OrangewireSender.login    = "username"
+    OrangewireSender.password = "password"
     
 Call 
 

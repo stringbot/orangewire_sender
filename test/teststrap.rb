@@ -2,6 +2,7 @@ require 'rubygems'
 require 'riot'
 require 'riot/rr'
 require 'ruby-debug'
+require 'nokogiri' # TODO how do i just make this a dep for testers but not users
 
 Riot.verbose
 

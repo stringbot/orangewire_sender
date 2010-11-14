@@ -10,7 +10,7 @@ class OrangewireSender
   class << self
     def notify(headline, summary)
       begin
-        resource.post({ :headline => headline, :summary  => summary })
+        resource.post({ :headline => headline, :summary  => summary, :login => @@login, :password => @@password })
       rescue Orangewire::Base => b
         raise b
       rescue

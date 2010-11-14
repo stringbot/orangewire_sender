@@ -21,10 +21,18 @@ rescue LoadError
 end
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/unit/test_*.rb'
-  test.verbose = true
+namespace :test do
+  Rake::TestTask.new(:unit) do |test|
+    test.libs << 'lib' << 'test'
+    test.pattern = 'test/unit/test_*.rb'
+    test.verbose = true
+  end
+
+  Rake::TestTask.new(:integration) do |test|
+    test.libs << 'libs' << 'test'
+    test.pattern = 'test/integration/test_*.rb'
+    test.verbose = true
+  end
 end
 
 begin
@@ -42,7 +50,7 @@ end
 
 task :test => :check_dependencies
 
-task :default => :test
+task :default => 'test:unit'
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
