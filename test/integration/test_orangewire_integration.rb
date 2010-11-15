@@ -18,7 +18,7 @@ context "OrangewireSender" do
     OrangewireSender.password = "tester"
 
     summary = "SUMMARY: #{Time.now.to_s}"
-    OrangewireSender.notify("TRA LA", summary)
+    OrangewireSender.notify("Test Headline", summary)
     summary
   end
 
